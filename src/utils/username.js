@@ -10,7 +10,6 @@ const getUserName = async() =>{
         username = argName.slice(userNameArg.length);
       }
     });
-    console.log(username);
     return username;
   }
   catch(error) {

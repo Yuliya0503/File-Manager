@@ -1,3 +1,4 @@
-import { getUserName } from "./utils/username.js";
+import { sayHiToUser, sayByeToUser } from './utils/helloAndBye.js';
 
-getUserName();
+sayHiToUser();
+sayByeToUser();
