@@ -1,7 +1,9 @@
 
 import Messages from "../constants/messages.js";
 import Currentdirectory from "./currentDirectory.js";
+
 import path from 'node:path';
+import { stat } from "node:fs";
 
 export const getUserName = async() =>{
   try{
@@ -26,13 +28,28 @@ export const getAbsolutePath = async(pth) => {
     const getCurrDirectory = currentDirectory.getCyrrentDir();
     const checkPath = path.isAbsolute(pth);
     if(checkPath) {
-      console.log(pth)
       return pth;
     } 
     else {
-      console.log(path.join(getCurrDirectory, pth))
       return (path.join(getCurrDirectory, pth));
     }
+  }
+  catch(error){
+    throw new Error(error);
+  }
+};
+
+export const checkExistPath = async(pth) => {
+  try {
+    const file = await getAbsolutePath(pth);
+    stat(file, err => {
+      if (!err) {
+        return true;
+      }
+      else if (err.code === 'ENOENT') {
+        return false;
+      }
+  });     
   }
   catch(error){
     throw new Error(error);
