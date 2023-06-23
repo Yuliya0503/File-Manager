@@ -6,4 +6,5 @@ export default class Messages {
   static INVALID_INPUT = 'Invalid input';
   static ERROR_MESS = 'Operation failed';
   static DEFAULT_USERNAME = 'Anonymous'; 
+  static USERNAME_ARGUMENT = 'username';
 }
