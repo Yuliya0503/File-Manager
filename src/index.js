@@ -1,4 +1,3 @@
-import { sayHiToUser, sayByeToUser } from './utils/helloAndBye.js';
+import { fileManager } from './controllers/filemananger.js';
 
-sayHiToUser();
-sayByeToUser();
+fileManager();
