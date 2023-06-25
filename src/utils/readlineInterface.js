@@ -1,4 +1,4 @@
-export default class ReadlineInterface {
+class ReadlineInterface {
   getReadlineIterface() {
     return this.readline;
   };
@@ -7,3 +7,6 @@ export default class ReadlineInterface {
     this.readline = readline;
   }
 }
+
+const readLineInterface = new ReadlineInterface();
+export { readLineInterface }

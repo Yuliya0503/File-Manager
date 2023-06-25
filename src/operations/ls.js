@@ -1,11 +1,11 @@
-import Currentdirectory from '../utils/currentDirectory.js';
+import { currentDirectory } from '../utils/currentDirectory.js';
 import fs from 'fs/promises';
 
 
 export  const ls = async() => {
   try {
-    const currentdirectory = new Currentdirectory();
-    const currDir = currentdirectory.getCyrrentDir();
+    
+    const currDir = currentDirectory.getCyrrentDir();
     const dirList = await fs.readdir(currDir, {withFileTypes: true});
     const filesArr = dirList
       .filter(file => file.isDirectory() || file.isFile())

@@ -1,8 +1,11 @@
-import DefaultStateConstants from "../constants/defaultConst.js";
+//import DefaultStateConstants from "../constants/defaultConst.js";
+import os from 'node:os';
 
-export default class Currentdirectory {
+const homedir = os.homedir();
+
+class Currentdirectory {
   constructor() {
-    this.currentDirectory = DefaultStateConstants.HOMEDIR;
+    this.currentDirectory = homedir;
   };
 
   setCyrrentDir(dir) {
@@ -13,3 +16,6 @@ export default class Currentdirectory {
     return this.currentDirectory;
   };
 }
+
+const currentDirectory = new Currentdirectory();
+export { currentDirectory };

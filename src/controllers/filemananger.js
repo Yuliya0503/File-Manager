@@ -1,13 +1,12 @@
 import readline from 'node:readline/promises';
 import { stdin as input, stdout as output} from 'node:process';
-import ReadlineInterface from '../utils/readlineInterface.js';
+import { readLineInterface } from '../utils/readlineInterface.js';
 import { sayByeToUser, sayHiToUser } from '../utils/helloAndBye.js';
 import { showCurrentDir, showInvalidInput, showOperationFailed } from '../utils/statuses.js';
 import { runCommands } from './runCommands.js';
 
 const rl = readline.createInterface({ input, output });
-const readlineInerfase = new ReadlineInterface();
-readlineInerfase.setReadlneInterface(rl);
+readLineInterface.setReadlneInterface(rl);
 
 export const fileManager = async() => {
   await sayHiToUser();

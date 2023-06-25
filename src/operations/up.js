@@ -1,12 +1,11 @@
 import path from 'path';
 
-import Currentdirectory from '../utils/currentDirectory.js';
+import {currentDirectory} from '../utils/currentDirectory.js';
 
 export const up = async() => {
   try{
-    const currDir = new Currentdirectory();
-    const dirNew = path.resolve(currDir.getCyrrentDir(), '../');
-    currDir.setCyrrentDir(dirNew);
+    const dirNew = path.resolve(currentDirectory.getCyrrentDir(), '../');
+    currentDirectory.setCyrrentDir(dirNew);
   }
   catch(error) {
     throw new Error(error);

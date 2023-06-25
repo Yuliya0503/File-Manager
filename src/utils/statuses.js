@@ -1,5 +1,5 @@
 import Messages from "../constants/messages.js";
-import Currentdirectory from "./currentDirectory.js";
+import { currentDirectory } from "./currentDirectory.js";
 
 export const showOperationFailed = async() => {
   try {
@@ -21,8 +21,8 @@ export const showInvalidInput = async() => {
 
 export const showCurrentDir = async() => {
   try { 
-  const currDir = new Currentdirectory();
-  process.stdout.write(`\x1b[32m${Messages.END_OF_INPUT + ' ' + currDir.getCyrrentDir()}\x1b[0m\n`)
+  
+  process.stdout.write(`\x1b[32m${Messages.END_OF_INPUT + ' ' + currentDirectory.getCyrrentDir()}\x1b[0m\n`)
   }
   catch(error) {
     throw new Error(error);

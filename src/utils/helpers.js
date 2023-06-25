@@ -1,6 +1,6 @@
 
 import Messages from "../constants/messages.js";
-import Currentdirectory from "./currentDirectory.js";
+import { currentDirectory } from '../utils/currentDirectory.js';
 
 import path from 'node:path';
 import { stat } from "node:fs";
@@ -24,7 +24,6 @@ export const getUserName = async() =>{
 
 export const getAbsolutePath = async(pth) => {
   try{
-    const currentDirectory = new Currentdirectory();
     const getCurrDirectory = currentDirectory.getCyrrentDir();
     const checkPath = path.isAbsolute(pth);
     if(checkPath) {
