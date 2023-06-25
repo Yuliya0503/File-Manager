@@ -3,7 +3,7 @@ import { currentDirectory } from "../utils/currentDirectory.js";
 
 export const cd = async(command) => {
   try{
-    const pathNew = command.arguments;
+    const pathNew = command.arguments[0];
     const newAbsolutePath = await getAbsolutePath(pathNew);
     await checkExistPath(newAbsolutePath);
     currentDirectory.setCyrrentDir(newAbsolutePath); 

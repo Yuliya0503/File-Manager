@@ -21,7 +21,7 @@ export const fileManager = async() => {
       .split(' ');
     let command = {
       name: str[0],
-      arguments: str[1]
+      arguments: str.slice(1), 
     };
     console.log(command)
     try {

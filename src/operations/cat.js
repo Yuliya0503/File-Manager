@@ -4,7 +4,7 @@ import { showOperationFailed } from '../utils/statuses.js';
 import fs from 'node:fs';
 
 export const cat = async(command) => {
-  const pathNew = command.arguments;
+  const pathNew = command.arguments[0];
   const absolutePath = await getAbsolutePath(pathNew);
   const readStream = fs.createReadStream(absolutePath, 'utf-8');
     
