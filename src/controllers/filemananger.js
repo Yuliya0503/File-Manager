@@ -19,7 +19,11 @@ export const fileManager = async() => {
       .toString()
       .trim()
       .split(' ');
-    let command = str[0];
+    let command = {
+      name: str[0],
+      arguments: str[1]
+    };
+    console.log(command)
     try {
       await runCommands(command);
     }
