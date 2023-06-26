@@ -8,8 +8,10 @@ export const cp = async(command) => {
   
     const absolutePathDestination = await getAbsolutePath(direcotryForCopy);
     const absolutePathToCopy = await getAbsolutePath(fileToCopy);
-    await access(absolutePathToCopy)
-    await access(absolutePathDestination)
+
+    await checkExistPath(absolutePathDestination);
+    await checkExistPath(absolutePathToCopy);
+
     await isDirectoryEx(absolutePathDestination);
     await isFileEx(absolutePathToCopy);
 
@@ -22,6 +24,7 @@ export const cp = async(command) => {
     readStream.on('data', data => {
       writestream.write(data);
     })
+    
   
   
 }
