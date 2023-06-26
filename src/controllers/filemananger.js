@@ -25,13 +25,13 @@ export const fileManager = async() => {
       arguments: str.slice(1), 
     };
     const commandCallError = (await isCommandArgsCount(command));
-    if(commandCallError) {
+    if(!commandCallError) {
       await showInvalidInput();
     } else {
       try {
         await runCommands(command);
       }
-      catch(error){
+      catch{
         await showOperationFailed();
       }
     }

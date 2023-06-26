@@ -13,14 +13,16 @@ const commandsCount = {
   [Commands.COMMAND_MV]: 2,
   [Commands.COMMAND_OS]: 1,
   [Commands.COMMAND_RM]: 1,
-  [Commands.COMMAND_RN]: 1,
+  [Commands.COMMAND_RN]: 2,
   [Commands.COMMAND_UP]: 0
 };
 
 export const isCommandArgsCount = async(command) => {
   const realCountArgs = command.arguments.length;
   const requireArgsCount = commandsCount[command.name];
-  if( !realCountArgs === requireArgsCount) {
+  if( !(realCountArgs === requireArgsCount)) {
     return false;
+  } else {
+    return true;
   }
 }

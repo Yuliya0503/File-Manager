@@ -5,7 +5,6 @@ import { showOperationFailed } from "./statuses.js";
 
 import path from 'node:path';
 import { lstat } from "node:fs/promises";
-import { stat } from 'node:fs';
 
 export const getUserName = async() =>{
   try{
