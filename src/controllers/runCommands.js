@@ -11,6 +11,7 @@ import { exit } from '../operations/exit.js';
 import { compress } from '../operations/compress.js';
 import { decompress } from '../operations/decompress.js';
 import { cp } from '../operations/cp.js';
+import { mv } from '../operations/mv.js';
 
 import Commands from '../constants/commands.js';
 
@@ -55,6 +56,9 @@ export const runCommands = async(command) => {
       break;
     case Commands.COMMAND_CP:
       await cp(command);
+      break;
+    case Commands.COMMAND_MV:
+      await mv(command);
       break;
   }
 }
