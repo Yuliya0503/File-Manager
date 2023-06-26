@@ -10,6 +10,7 @@ import { hash } from '../operations/hash.js';
 import { exit } from '../operations/exit.js';
 import { compress } from '../operations/compress.js';
 import { decompress } from '../operations/decompress.js';
+import { cp } from '../operations/cp.js';
 
 import Commands from '../constants/commands.js';
 
@@ -51,6 +52,9 @@ export const runCommands = async(command) => {
       break;
     case Commands.COMMAND_DECOMPRESS:
       await decompress(command);
+      break;
+    case Commands.COMMAND_CP:
+      await cp(command);
       break;
   }
 }
