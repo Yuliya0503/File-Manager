@@ -33,6 +33,7 @@ export const fileManager = async() => {
       }
       catch{
         await showOperationFailed();
+        rl.prompt();
       }
     }
     
@@ -40,6 +41,7 @@ export const fileManager = async() => {
     rl.prompt();
 
   });
+
 
   rl.on('SIGINT', () => {
     rl.close();
