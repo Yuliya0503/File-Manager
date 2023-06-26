@@ -14,6 +14,7 @@ import { cp } from '../operations/cp.js';
 import { mv } from '../operations/mv.js';
 
 import Commands from '../constants/commands.js';
+import { showInvalidInput } from '../utils/statuses.js';
 
 export const runCommands = async(command) => {
   const commandName = command.name;
@@ -60,5 +61,7 @@ export const runCommands = async(command) => {
     case Commands.COMMAND_MV:
       await mv(command);
       break;
+    default: 
+      await showInvalidInput();
   }
 }

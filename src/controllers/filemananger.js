@@ -4,6 +4,7 @@ import { readLineInterface } from '../utils/readlineInterface.js';
 import { sayByeToUser, sayHiToUser } from '../utils/helloAndBye.js';
 import { showCurrentDir, showInvalidInput, showOperationFailed } from '../utils/statuses.js';
 import { runCommands } from './runCommands.js';
+import { isCommandArgsCount } from './controllerCountArguments.js';
 
 const rl = readline.createInterface({ input, output });
 readLineInterface.setReadlneInterface(rl);
@@ -19,18 +20,22 @@ export const fileManager = async() => {
       .toString()
       .trim()
       .split(' ');
-    let command = {
+    const command = {
       name: str[0],
       arguments: str.slice(1), 
     };
-    console.log(command)
-    try {
-      await runCommands(command);
+    const commandCallError = !(await isCommandArgsCount(command));
+    if(commandCallError) {
+      await showInvalidInput();
+    } else {
+      try {
+        await runCommands(command);
+      }
+      catch(error){
+        await showOperationFailed();
+      }
     }
-    catch(error){
-      //await showOperationFailed();
-      console.log(error)
-    }
+    
     await showCurrentDir();
     rl.prompt();
 

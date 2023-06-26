@@ -4,6 +4,7 @@ import { cpus } from './cpus.js';
 import { showHomedir } from './homedir.js';
 import { userName } from './username.js';
 import { architecture } from './architecture.js';
+import { showInvalidInput } from '../../utils/statuses.js';
 
 export const os = async(command) => {
   const commandArg = command.arguments[0];
@@ -23,5 +24,7 @@ export const os = async(command) => {
     case Commands.OS_ARCHITECTURE:
       await architecture();
       break;
+    default:
+      await showInvalidInput();
   } 
 }
