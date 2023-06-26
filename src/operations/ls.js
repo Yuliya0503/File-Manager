@@ -1,4 +1,5 @@
 import { currentDirectory } from '../utils/currentDirectory.js';
+import { showOperationFailed } from "../utils/statuses.js";
 import fs from 'fs/promises';
 
 
@@ -19,8 +20,8 @@ export  const ls = async() => {
       .sort((a, b) => a.type === b.type ? a.name.localeCompare(b.name) : a.type === 'file' ? 1 : -1) 
     console.table(filesArr);
   }
-  catch(error){
-    throw new Error(error);
+  catch{
+    showOperationFailed();
   }
 };
 

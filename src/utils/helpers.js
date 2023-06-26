@@ -1,9 +1,11 @@
 
 import Messages from "../constants/messages.js";
 import { currentDirectory } from '../utils/currentDirectory.js';
+import { showOperationFailed } from "./statuses.js";
 
 import path from 'node:path';
-import { lstat, stat } from "node:fs/promises";
+import { lstat } from "node:fs/promises";
+import { stat } from 'node:fs';
 
 export const getUserName = async() =>{
   try{
@@ -17,8 +19,8 @@ export const getUserName = async() =>{
     });
     return username;
   }
-  catch(error) {
-    throw new Error(`getUserName failed: ${error}`)
+  catch {
+    showOperationFailed();
   }
 }
 
@@ -33,25 +35,19 @@ export const getAbsolutePath = async(pth) => {
       return (path.join(getCurrDirectory, pth));
     }
   }
-  catch(error){
-    throw new Error(error);
+  catch{
+    showOperationFailed();
   }
 };
 
 export const checkExistPath = async(pth) => {
   try {
     const file = await getAbsolutePath(pth);
-    stat(file, err => {
-      if (!err) {
-        return true;
-      }
-      else if (err.code === 'ENOENT') {
-        return false;
-      }
-  });     
-  }
-  catch(error){
-    throw new Error(error);
+    const stat = await lstat(file);
+    return stat.isDirectory();
+  }  
+  catch{
+    return false;
   }
 };
 
@@ -62,7 +58,7 @@ export const isFileEx = async(path) => {
     return res
   }
   catch{
-    throw new Error();
+    showOperationFailed();
   }
 };
 
@@ -73,6 +69,6 @@ export const isDirectoryEx = async(path) => {
     return res;
   }
   catch{
-    throw new Error();
+    showOperationFailed();
   }
 };

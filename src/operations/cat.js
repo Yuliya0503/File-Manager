@@ -11,9 +11,9 @@ export const cat = async(command) => {
   readStream.on('data', (data) => {
     process.stdout.write(data);
   });
-  readStream.on('error', (error) => {
+  readStream.on('error', () => {
     showOperationFailed();
-    return error;
+    
   })
 
   

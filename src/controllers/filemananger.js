@@ -24,7 +24,7 @@ export const fileManager = async() => {
       name: str[0],
       arguments: str.slice(1), 
     };
-    const commandCallError = !(await isCommandArgsCount(command));
+    const commandCallError = (await isCommandArgsCount(command));
     if(commandCallError) {
       await showInvalidInput();
     } else {

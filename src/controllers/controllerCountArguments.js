@@ -20,7 +20,6 @@ const commandsCount = {
 export const isCommandArgsCount = async(command) => {
   const realCountArgs = command.arguments.length;
   const requireArgsCount = commandsCount[command.name];
-
   if( !realCountArgs === requireArgsCount) {
     return false;
   }
