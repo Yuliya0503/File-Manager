@@ -27,8 +27,9 @@ export const fileManager = async() => {
     try {
       await runCommands(command);
     }
-    catch{
-      await showOperationFailed();
+    catch(error){
+      //await showOperationFailed();
+      console.log(error)
     }
     await showCurrentDir();
     rl.prompt();
