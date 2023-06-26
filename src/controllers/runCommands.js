@@ -7,6 +7,7 @@ import { rn } from '../operations/rn.js';
 import { rm } from '../operations/rm.js';
 import { os } from '../operations/os/osSwitch.js';
 import { hash } from '../operations/hash.js';
+import { exit } from '../operations/exit.js';
 
 import Commands from '../constants/commands.js';
 
@@ -39,6 +40,9 @@ export const runCommands = async(command) => {
       break;
     case Commands.COMMAND_HASH:
       await hash(command);
+      break;
+    case Commands.COMMAND_EXIT:
+      await exit();
       break;
   }
 }
