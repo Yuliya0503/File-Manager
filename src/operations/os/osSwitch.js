@@ -1,5 +1,11 @@
-import { eol } from "./eol.js";
+import Commands from '../../constants/commands.js';
+import { eol } from './eol.js';
 
 export const os = async(command) => {
- eol();
+  const commandArg = command.arguments[0];
+  switch (commandArg) {
+    case Commands.OS_EOL:
+      await eol();
+      break;
+  } 
 }
