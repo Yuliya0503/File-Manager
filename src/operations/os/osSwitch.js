@@ -1,6 +1,7 @@
 import Commands from '../../constants/commands.js';
 import { eol } from './eol.js';
 import { cpus } from './cpus.js';
+import { showHomedir } from './homedir.js';
 
 export const os = async(command) => {
   const commandArg = command.arguments[0];
@@ -10,6 +11,9 @@ export const os = async(command) => {
       break;
     case Commands.OS_CPUS:
       await cpus();
+      break;
+    case Commands.OS_HOMEDIR:
+      await showHomedir();
       break;
   } 
 }
