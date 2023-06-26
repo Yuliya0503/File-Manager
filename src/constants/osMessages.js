@@ -1,4 +1,4 @@
-export default class Messages {
+export default class OSMessages {
   static END_OF_LINE_MESS = 'Default system End-Of-Line';
   static HOME_DIRECOTRY_MESS = 'Home directory';
   static SYSTEM_USER_NAME = 'System user name';
