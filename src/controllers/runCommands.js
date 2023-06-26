@@ -8,6 +8,7 @@ import { rm } from '../operations/rm.js';
 import { os } from '../operations/os/osSwitch.js';
 import { hash } from '../operations/hash.js';
 import { exit } from '../operations/exit.js';
+import { compress } from '../operations/compress.js';
 
 import Commands from '../constants/commands.js';
 
@@ -43,6 +44,9 @@ export const runCommands = async(command) => {
       break;
     case Commands.COMMAND_EXIT:
       await exit();
+      break;
+    case Commands.COMMAND_COMPRESS:
+      await compress(command);
       break;
   }
 }
