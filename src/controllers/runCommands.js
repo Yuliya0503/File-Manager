@@ -4,6 +4,7 @@ import  { cd } from '../operations/cd.js';
 import { cat } from '../operations/cat.js';
 import { add } from '../operations/add.js';
 import { rn } from '../operations/rn.js';
+import { rm } from '../operations/rm.js';
 
 import Commands from '../constants/commands.js';
 
@@ -27,6 +28,9 @@ export const runCommands = async(command) => {
       break;
     case Commands.COMMAND_RN:
       await rn(command);
+      break;
+    case Commands.COMMAND_RM:
+      await rm(command);
       break;
   }
 }
