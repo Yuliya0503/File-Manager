@@ -3,6 +3,7 @@ import { eol } from './eol.js';
 import { cpus } from './cpus.js';
 import { showHomedir } from './homedir.js';
 import { userName } from './username.js';
+import { architecture } from './architecture.js';
 
 export const os = async(command) => {
   const commandArg = command.arguments[0];
@@ -18,6 +19,9 @@ export const os = async(command) => {
       break;
     case Commands.OS_USERNAME:
       await userName();
+      break;
+    case Commands.OS_ARCHITECTURE:
+      await architecture();
       break;
   } 
 }
