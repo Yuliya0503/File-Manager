@@ -3,7 +3,7 @@ import Messages from "../constants/messages.js";
 import { currentDirectory } from '../utils/currentDirectory.js';
 
 import path from 'node:path';
-import { stat } from "node:fs";
+import { lstat, stat } from "node:fs/promises";
 
 export const getUserName = async() =>{
   try{
@@ -53,4 +53,26 @@ export const checkExistPath = async(pth) => {
   catch(error){
     throw new Error(error);
   }
-}
+};
+
+export const isFileEx = async(path) => {
+  try{
+    const stat = await lstat(path);
+    const res = stat.isFile()
+    return res
+  }
+  catch{
+    throw new Error();
+  }
+};
+
+export const isDirectoryEx = async(path) => {
+  try{
+    const stat = await lstat(path);
+    const res = stat.isDirectory();
+    return res;
+  }
+  catch{
+    throw new Error();
+  }
+};
